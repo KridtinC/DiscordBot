@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
-var auth = require('./auth.json');
+var auth = require('./auth/auth.json');
 const ytdl = require('ytdl-core');
 
 client.on('ready', () => {
