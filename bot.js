@@ -68,15 +68,15 @@ client.on('message', msg => {
                 console.log(ids.length)
                 for (let i = 0; i < ids.length ; i++){
                     if(i%2 == 0){
-                        onoiList.push("BLACK");
+                        onoiList.push("BLACK ⚫");
                     }
                     else{
-                        onoiList.push("WHITE");
+                        onoiList.push("WHITE ⚪");
                     }           
                 }
                 for(var i = onoiList.length-1;i>=0;i--){
                     var rand = Math.floor(Math.random()*onoiList.length)
-                    var username = msg.member.voiceChannel.members.get(ids[i]).user.username;
+                    var username = msg.member.voiceChannel.members.get(ids[i]).displayName;
                     msg.channel.sendMessage(username + ": " + onoiList[rand]);
                     onoiList.splice(rand, 1);
                 }
@@ -96,18 +96,18 @@ client.on('message', msg => {
                 console.log(ids.length)
                 for (let i = 1; i < ids.length+1 ; i++){
                     if(i%2 == 0){
-                        onoiList.push("TANK");
+                        onoiList.push("TANK 🏯");
                     }
                     else if(i%3 == 0){
-                        onoiList.push("DPS");
+                        onoiList.push("DPS 🗽");
                     }
                     else{
-                        onoiList.push("SUPPORT"); 
+                        onoiList.push("SUPPORT 🥗"); 
                     }           
                 }
                 for(var i = onoiList.length-1;i>=0;i--){
                     var rand = Math.floor(Math.random()*onoiList.length)
-                    var username = msg.member.voiceChannel.members.get(ids[i]).user.username;
+                    var username = msg.member.voiceChannel.members.get(ids[i]).displayName;
                     msg.channel.sendMessage(username + ": " + onoiList[rand]);
                     onoiList.splice(rand, 1);
                 }
