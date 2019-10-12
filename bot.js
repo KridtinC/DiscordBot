@@ -20,7 +20,11 @@ client.on('message', msg => {
 				break;
             case 'kan':
                 console.log(msg.member.voiceChannel)
-                msg.reply('is handsome!')
+                msg.channel.sendMessage('is Pi!')
+                break;
+            case 'bas' :
+                console.log(msg.member.voiceChannel)
+                msg.channel.sendMessage('Oh, welcome od of Discord!!')
                 break;
             case 'rip':
                 msg.channel.send(new Discord.Attachment('https://i.imgur.com/w3duR07.png'));
@@ -58,15 +62,45 @@ client.on('message', msg => {
                 msg.member.voiceChannel.leave()
                 break
             case 'onoi':
-                msg.reply('-----------------------------')
-                msg.reply('ork!')
-                var username = msg.member.voiceChannel.members.get('214357101298843649').user.username
-                var ids = msg.member.voiceChannel.members.keys()
-                console.log(username, ids)
+                msg.member.voiceChannel.join()
+                msg.channel.sendMessage('-----------------------------')
+                var ids = msg.member.voiceChannel.members.keyArray();
+                var onoiList = [];
+                console.log(ids.length)
+                for (let i = 0; i < ids.length ; i++){
+                    if(i%2 == 0){
+                        onoiList.push("black");
+                    }
+                    else{
+                        onoiList.push("white");
+                    }           
+                }
+                for(var i = onoiList.length-1;i>=0;i--){
+                    var rand = Math.floor(Math.random()*onoiList.length)
+                    var username = msg.member.voiceChannel.members.get(ids[i]).user.username;
+                    msg.channel.sendMessage(username + ": " + onoiList[rand]);
+                    onoiList.splice(rand, 1);
+                }
+                // ids.forEach(id => {
+                //     var username = msg.member.voiceChannel.members.get(id).user.username;
+                //     var rand = getRandomInt(onoiList.length);
+                //     msg.channel.sendMessage(username + ": " + onoiList[rand]);
+                // })
+                
+                
+                //console.log(ids)
                 break;
         }
     }
 });
+
+function getRandomInt(max) {
+    return Math.floor(Math.random() * Math.floor(max));
+}
+
+function onoiork(){
+    
+}
 
 client.login(auth.token);
 
