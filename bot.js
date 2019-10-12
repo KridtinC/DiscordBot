@@ -62,7 +62,6 @@ client.on('message', msg => {
                 msg.member.voiceChannel.leave()
                 break
             case 'onoi':
-                msg.member.voiceChannel.join()
                 msg.channel.sendMessage('-----------------------------')
                 var ids = msg.member.voiceChannel.members.keyArray();
                 var onoiList = [];
@@ -90,16 +89,36 @@ client.on('message', msg => {
                 
                 //console.log(ids)
                 break;
+            case 'onoiRank':
+                msg.channel.sendMessage('-----------------------------')
+                var ids = msg.member.voiceChannel.members.keyArray();
+                var onoiList = [];
+                console.log(ids.length)
+                for (let i = 0; i < ids.length ; i++){
+                    if(i%2 == 0){
+                        onoiList.push("TANK");
+                    }
+                    if(i%3 == 0){
+                        onoiList.push("DPS");
+                    }
+                    else{
+                        onoiList.push("SUPPORT"); 
+                    }           
+                }
+                for(var i = onoiList.length-1;i>=0;i--){
+                    var rand = Math.floor(Math.random()*onoiList.length)
+                    var username = msg.member.voiceChannel.members.get(ids[i]).user.username;
+                    msg.channel.sendMessage(username + ": " + onoiList[rand]);
+                    onoiList.splice(rand, 1);
+                }
+                break;
+
         }
     }
 });
 
 function getRandomInt(max) {
     return Math.floor(Math.random() * Math.floor(max));
-}
-
-function onoiork(){
-    
 }
 
 client.login(auth.token);
