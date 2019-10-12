@@ -68,10 +68,10 @@ client.on('message', msg => {
                 console.log(ids.length)
                 for (let i = 0; i < ids.length ; i++){
                     if(i%2 == 0){
-                        onoiList.push("black");
+                        onoiList.push("BLACK");
                     }
                     else{
-                        onoiList.push("white");
+                        onoiList.push("WHITE");
                     }           
                 }
                 for(var i = onoiList.length-1;i>=0;i--){
