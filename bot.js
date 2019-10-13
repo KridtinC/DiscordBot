@@ -20,11 +20,15 @@ client.on('message', msg => {
 				break;
             case 'kan':
                 console.log(msg.member.voiceChannel)
-                msg.channel.sendMessage('is Pi!')
+                msg.channel.sendMessage('**Welcome ไอปี่**')
                 break;
             case 'bas' :
                 console.log(msg.member.voiceChannel)
                 msg.channel.sendMessage('Oh, welcome od of Discord!!')
+                break;
+            case 'pi' :
+                var randWord = ['**สัส อย่าพูดชื่อนี้อีก**', '**นะ นะ นะ นั่นมัน...... ปี่**', '**สวัสดีคับ ปี่**'];             
+                msg.channel.sendMessage(randWord[getRandomInt(randWord.length)]);
                 break;
             case 'rip':
                 msg.channel.send(new Discord.Attachment('https://i.imgur.com/w3duR07.png'));
@@ -56,9 +60,14 @@ client.on('message', msg => {
                 }
                 break;
 			case 'pause':
-			
 				break;
             case 'stop':
+                msg.member.voiceChannel.leave()
+                break
+            case 'botin':
+                msg.member.voiceChannel.join()
+                break;
+            case 'botout':
                 msg.member.voiceChannel.leave()
                 break
             case 'onoi':
@@ -68,10 +77,10 @@ client.on('message', msg => {
                 console.log(ids.length)
                 for (let i = 0; i < ids.length ; i++){
                     if(i%2 == 0){
-                        onoiList.push("BLACK ⚫");
+                        onoiList.push("**BLACK** ⚫");
                     }
                     else{
-                        onoiList.push("WHITE ⚪");
+                        onoiList.push("**WHITE** ⚪");
                     }           
                 }
                 for(var i = onoiList.length-1;i>=0;i--){
@@ -96,13 +105,13 @@ client.on('message', msg => {
                 console.log(ids.length)
                 for (let i = 1; i < ids.length+1 ; i++){
                     if(i%2 == 0){
-                        onoiList.push("TANK 🏯");
+                        onoiList.push("**TANK** 🏯");
                     }
                     else if(i%3 == 0){
-                        onoiList.push("DPS 🗽");
+                        onoiList.push("**DPS** 🗽");
                     }
                     else{
-                        onoiList.push("SUPPORT 🥗"); 
+                        onoiList.push("**SUPPORT** 🥗"); 
                     }           
                 }
                 for(var i = onoiList.length-1;i>=0;i--){
@@ -112,7 +121,6 @@ client.on('message', msg => {
                     onoiList.splice(rand, 1);
                 }
                 break;
-
         }
     }
 });
