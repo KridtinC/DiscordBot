@@ -5,6 +5,11 @@ const client = new Discord.Client();
 var token = process.env.token;
 const ytdl = require('ytdl-core');
 
+//Overwatch Character List by Role
+var tankList = ['D.VA', 'ORISA', 'REINHARDT', 'ROADHOG', 'WINSTON', 'WREACKING_BALL', 'ZARYA', 'SIGMA'];
+var dpsList = ['ASHE','BASTION','DOOMFIST','GENJI','HANZO','JUNKRAT','MCCREE','MEI','PHARAH','REAPER','SOLDIER 76','SOMBRA','SYMMETRA','TORBJöRN','TRACER','WIDOWMAKER'];
+var supportList = ['ANA','BAPTISTE','BRIGITTE','LUCIO','MERCY','MOIRA','ZENYATTA'];
+
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
 });
@@ -99,7 +104,7 @@ client.on('message', msg => {
                 
                 //console.log(ids)
                 break;
-            case 'onoiRank':
+            case 'onoirank':
                 msg.channel.sendMessage('-----------------------------')
                 var ids = msg.member.voiceChannel.members.keyArray();
                 var onoiList = [];
@@ -122,12 +127,29 @@ client.on('message', msg => {
                     onoiList.splice(rand, 1);
                 }
                 break;
+            case 'ow' :
+                switch(args[0]){
+                    case 'tank':      
+                        randomCharacter(tankList,msg);
+                        break;
+                    case 'dps':
+                        randomCharacter(dpsList,msg);
+                        break;
+                    case 'support':
+                        randomCharacter(supportList,msg);
+                        break;
+                }
+                break;
         }
     }
 });
 
 function getRandomInt(max) {
     return Math.floor(Math.random() * Math.floor(max));
+}
+
+function randomCharacter(randList, msg){
+    msg.channel.sendMessage("should play **" +randList[getRandomInt(randList.length)] + "**");
 }
 
 client.login(token);
