@@ -11,6 +11,6 @@
     "ytdl-core": "^0.29.7"
   },
   "scripts": {
-    "start": "nodemon bot.js"
+    "start": "node bot.js"
   }
 }
