@@ -107,7 +107,7 @@ client.on('message', msg => {
                             if(i%2 == 0 && i%3 != 0){
                                 onoiList.push("**DPS** 🗽");
                             }
-                            else if(i%3 == 0 || i%2 != 0){
+                            else if(i%3 == 0){
                                 onoiList.push("**SUPPORT** 🥗"); 
                             }
                             else{
