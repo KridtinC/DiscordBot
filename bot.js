@@ -33,7 +33,7 @@ client.on('message', msg => {
                 msg.channel.sendMessage('Oh, welcome od of Discord!!')
                 break;
             case 'pi' :
-                var randWord = ['**สัส อย่าพูดชื่อนี้อีก**', '**นะ นะ นะ นั่นมัน...... ปี่**', '**สวัสดีคับ ปี่**'];             
+                var randWord = ['**สัส อย่าพูดชื่อนี้อีก**', '**นะ นะ นะ นั่นมัน...... ปี่**', '**สวัสดีคับ ปี่**', '**นัดไว้มาให้ตรงเวลาด้วยนะปี่**'];             
                 msg.channel.sendMessage(randWord[getRandomInt(randWord.length)]);
                 break;
             case 'rip':
