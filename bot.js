@@ -39,6 +39,9 @@ client.on('message', msg => {
             case 'rip':
                 msg.channel.send(new Discord.Attachment('https://i.imgur.com/w3duR07.png'));
                 break;
+            case 'kuy':
+                msg.channel.send('นั่นมึงละโอ')
+                break;
             case 'salmon':
                 msg.reply('Salmon smells good!')
                 msg.channel.send(new Discord.Attachment('https://www.manusmenu.com/wp-content/uploads/2016/05/1-Salmon-Sashimi-with-Ponzu-3-1-of-1.jpg'));
@@ -135,6 +138,15 @@ client.on('message', msg => {
                         randomCharacter(supportList,msg);
                         break;
                 }
+                break;
+            case 'help':
+                msg.channel.send("**!play [youtube_link]** | Playing song from youtube in current channel")
+                msg.channel.send("**!stop** | Stop song, and kick bot out")
+                msg.channel.send("**!botin/botout** | Bot join/leave the channel")
+                msg.channel.send("**!pi** | Predict system with 100% accuracy for **PI** actions")
+                msg.channel.send("**!onoi ork** | Random BLACK, WHITE")
+                msg.channel.send("**!onoi role** | Random TANK, DPS, SUPPORT")
+                msg.channel.send("**!ow tank/dps/support** | Random character seperate by role in Overwatch")
                 break;
         }
     }
