@@ -77,54 +77,50 @@ client.on('message', msg => {
                 msg.member.voiceChannel.leave()
                 break
             case 'onoi':
-                msg.channel.sendMessage('-----------------------------')
-                var ids = msg.member.voiceChannel.members.keyArray();
-                var onoiList = [];
-                console.log(ids.length)
-                for (let i = 0; i < ids.length ; i++){
-                    if(i%2 == 0){
-                        onoiList.push("**BLACK** ⚫");
-                    }
-                    else{
-                        onoiList.push("**WHITE** ⚪");
-                    }           
-                }
-                for(var i = onoiList.length-1;i>=0;i--){
-                    var rand = Math.floor(Math.random()*onoiList.length)
-                    var username = msg.member.voiceChannel.members.get(ids[i]).displayName;
-                    msg.channel.sendMessage(username + ": " + onoiList[rand]);
-                    onoiList.splice(rand, 1);
-                }
-                // ids.forEach(id => {
-                //     var username = msg.member.voiceChannel.members.get(id).user.username;
-                //     var rand = getRandomInt(onoiList.length);
-                //     msg.channel.sendMessage(username + ": " + onoiList[rand]);
-                // })
-                
-                
-                //console.log(ids)
-                break;
-            case 'onoirank':
-                msg.channel.sendMessage('-----------------------------')
-                var ids = msg.member.voiceChannel.members.keyArray();
-                var onoiList = [];
-                console.log(ids.length)
-                for (let i = 1; i < ids.length+1 ; i++){
-                    if(i%2 == 0){
-                        onoiList.push("**TANK** 🏯");
-                    }
-                    else if(i%3 == 0){
-                        onoiList.push("**DPS** 🗽");
-                    }
-                    else{
-                        onoiList.push("**SUPPORT** 🥗"); 
-                    }           
-                }
-                for(var i = onoiList.length-1;i>=0;i--){
-                    var rand = Math.floor(Math.random()*onoiList.length)
-                    var username = msg.member.voiceChannel.members.get(ids[i]).displayName;
-                    msg.channel.sendMessage(username + ": " + onoiList[rand]);
-                    onoiList.splice(rand, 1);
+                switch (args[0]){
+                    case 'ork':
+                        msg.channel.sendMessage('-----------------------------')
+                        var ids = msg.member.voiceChannel.members.keyArray();
+                        var onoiList = [];
+                        console.log(ids.length)
+                        for (let i = 0; i < ids.length ; i++){
+                            if(i%2 == 0){
+                                onoiList.push("**BLACK** ⚫");
+                            }
+                            else{
+                                onoiList.push("**WHITE** ⚪");
+                            }           
+                        }
+                        for(var i = onoiList.length-1;i>=0;i--){
+                            var rand = Math.floor(Math.random()*onoiList.length)
+                            var username = msg.member.voiceChannel.members.get(ids[i]).displayName;
+                            msg.channel.sendMessage(username + ": " + onoiList[rand]);
+                            onoiList.splice(rand, 1);
+                        }
+                        break;
+                    case 'role':
+                        msg.channel.sendMessage('-----------------------------')
+                        var ids = msg.member.voiceChannel.members.keyArray();
+                        var onoiList = [];
+                        console.log(ids.length)
+                        for (let i = 1; i < ids.length+1 ; i++){
+                            if(i%2 == 0){
+                                onoiList.push("**TANK** 🏯");
+                            }
+                            else if(i%3 == 0){
+                                onoiList.push("**DPS** 🗽");
+                            }
+                            else{
+                                onoiList.push("**SUPPORT** 🥗"); 
+                            }           
+                        }
+                        for(var i = onoiList.length-1;i>=0;i--){
+                            var rand = Math.floor(Math.random()*onoiList.length)
+                            var username = msg.member.voiceChannel.members.get(ids[i]).displayName;
+                            msg.channel.sendMessage(username + ": " + onoiList[rand]);
+                            onoiList.splice(rand, 1);
+                        }
+                        break;    
                 }
                 break;
             case 'ow' :
