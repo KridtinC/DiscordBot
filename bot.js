@@ -149,7 +149,7 @@ function getRandomInt(max) {
 }
 
 function randomCharacter(randList, msg){
-    msg.channel.sendMessage("should play **" +randList[getRandomInt(randList.length)] + "**");
+    msg.reply("should play **" +randList[getRandomInt(randList.length)] + "**");
 }
 
 client.login(token);
