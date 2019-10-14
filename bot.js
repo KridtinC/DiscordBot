@@ -104,14 +104,14 @@ client.on('message', msg => {
                         var onoiList = [];
                         console.log(ids.length)
                         for (let i = 1; i < ids.length+1 ; i++){
-                            if(i%2 == 0){
-                                onoiList.push("**TANK** 🏯");
-                            }
-                            else if(i%3 == 0){
+                            if(i%2 == 0 && i%3 != 0){
                                 onoiList.push("**DPS** 🗽");
                             }
-                            else{
+                            else if(i%3 == 0 || i%2 != 0){
                                 onoiList.push("**SUPPORT** 🥗"); 
+                            }
+                            else{
+                                onoiList.push("**TANK** 🏯");    
                             }           
                         }
                         for(var i = onoiList.length-1;i>=0;i--){
