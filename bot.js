@@ -2,6 +2,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 
 var auth = require('./auth/auth.json');
+var token = process.env.token;
 const ytdl = require('ytdl-core');
 
 client.on('ready', () => {
@@ -129,6 +130,6 @@ function getRandomInt(max) {
     return Math.floor(Math.random() * Math.floor(max));
 }
 
-client.login(auth.token);
+client.login(token);
 
 
