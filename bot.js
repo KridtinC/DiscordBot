@@ -30,7 +30,7 @@ client.on('message', msg => {
                 break;
             case 'bas' :
                 console.log(msg.member.voiceChannel)
-                msg.channel.sendMessage('Oh, welcome od of Discord!!')
+                msg.channel.sendMessage('Oh, welcome God of Discord!!')
                 break;
             case 'pi' :
                 var randWord = ['**สัส อย่าพูดชื่อนี้อีก**', '**นะ นะ นะ นั่นมัน...... ปี่**', '**สวัสดีคับ ปี่**', '**นัดไว้มาให้ตรงเวลาด้วยนะปี่**'];             
@@ -82,6 +82,7 @@ client.on('message', msg => {
             case 'onoi':
                 switch (args[0]){
                     case 'ork':
+                        let resultMessage = '';
                         msg.channel.sendMessage('-----------------------------')
                         var ids = msg.member.voiceChannel.members.keyArray();
                         var onoiList = [];
@@ -97,11 +98,13 @@ client.on('message', msg => {
                         for(var i = onoiList.length-1;i>=0;i--){
                             var rand = Math.floor(Math.random()*onoiList.length)
                             var username = msg.member.voiceChannel.members.get(ids[i]).displayName;
-                            msg.channel.sendMessage(username + ": " + onoiList[rand]);
+                            resultMessage.concat(username + ": " + onoiList[rand] + "\n");
                             onoiList.splice(rand, 1);
                         }
+                        msg.channel.sendMessage(resultMessage);
                         break;
                     case 'role':
+                        let resultMessage = '';
                         msg.channel.sendMessage('-----------------------------')
                         var ids = msg.member.voiceChannel.members.keyArray();
                         var onoiList = [];
@@ -120,9 +123,10 @@ client.on('message', msg => {
                         for(var i = onoiList.length-1;i>=0;i--){
                             var rand = Math.floor(Math.random()*onoiList.length)
                             var username = msg.member.voiceChannel.members.get(ids[i]).displayName;
-                            msg.channel.sendMessage(username + ": " + onoiList[rand]);
+                            resultMessage.concat(username + ": " + onoiList[rand] + "\n");
                             onoiList.splice(rand, 1);
                         }
+                        msg.channel.sendMessage(resultMessage);
                         break;    
                 }
                 break;
@@ -140,13 +144,16 @@ client.on('message', msg => {
                 }
                 break;
             case 'help':
-                msg.channel.send("**!play [youtube_link]** | Playing song from youtube in current channel")
-                msg.channel.send("**!stop** | Stop song, and kick bot out")
-                msg.channel.send("**!botin/botout** | Bot join/leave the channel")
-                msg.channel.send("**!pi** | Predict system with 100% accuracy for **PI** actions")
-                msg.channel.send("**!onoi ork** | Random BLACK, WHITE")
-                msg.channel.send("**!onoi role** | Random TANK, DPS, SUPPORT")
-                msg.channel.send("**!ow tank/dps/support** | Random character seperate by role in Overwatch")
+                msg.channel.send("**!play [youtube_link]** | Playing song from youtube in current channel\n**!stop** | Stop song, and kick bot out\n**!botin/botout** | Bot join/leave the channel\n\
+                **!pi** | Predict system with 100% accuracy for **PI** actions\n\
+                **!onoi ork** | Random BLACK, WHITE\n**!onoi role** | Random TANK, DPS, SUPPORT\n\
+                **!ow tank/dps/support** | Random character seperate by role in Overwatch");
+                // msg.channel.send("**!stop** | Stop song, and kick bot out")
+                // msg.channel.send("**!botin/botout** | Bot join/leave the channel")
+                // msg.channel.send("**!pi** | Predict system with 100% accuracy for **PI** actions")
+                // msg.channel.send("**!onoi ork** | Random BLACK, WHITE")
+                // msg.channel.send("**!onoi role** | Random TANK, DPS, SUPPORT")
+                // msg.channel.send("**!ow tank/dps/support** | Random character seperate by role in Overwatch")
                 break;
         }
     }
