@@ -18,6 +18,7 @@ client.on('message', msg => {
     if (msg.content.substring(0, 1) == '!') {
         var args = msg.content.substring(1).split(' ');
         var cmd = args[0];
+        var resultMessage = '';
 
         args = args.splice(1);
         switch (cmd) {
@@ -82,7 +83,7 @@ client.on('message', msg => {
             case 'onoi':
                 switch (args[0]){
                     case 'ork':
-                        let resultMessage = '';
+                        resultMessage = '';
                         msg.channel.sendMessage('-----------------------------')
                         var ids = msg.member.voiceChannel.members.keyArray();
                         var onoiList = [];
@@ -104,7 +105,7 @@ client.on('message', msg => {
                         msg.channel.sendMessage(resultMessage);
                         break;
                     case 'role':
-                        let resultMessage = '';
+                        resultMessage = '';
                         msg.channel.sendMessage('-----------------------------')
                         var ids = msg.member.voiceChannel.members.keyArray();
                         var onoiList = [];
