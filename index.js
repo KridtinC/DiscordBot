@@ -3,10 +3,10 @@ const client = new Discord.Client();
 
 const ytdl = require('ytdl-core');
 
-const dotenv = require('dotenv');
-const envVar = dotenv.config().parsed
-var token = envVar.token;
-var hbd = [];
+// const dotenv = require('dotenv');
+// const envVar = dotenv.config().parsed
+// var token = envVar.token;
+var token = process.env.token;
 
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
