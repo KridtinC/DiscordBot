@@ -43,12 +43,12 @@ client.on('message', msg => {
                     msg.reply('Please paste youtube link!')
                 }
                 else {
-                    const streamOptions = { seek: 0, volume: 1 };
+                    const streamOptions = { seek: 0, volume: 0.1 };
                     msg.member.voiceChannel.join()
                         .then(connection => {
                             console.log('joined channel');
 
-                            connection.play(ytdl(args[0]), streamOptions)
+                            connection.playConvertedStream(ytdl(args[0]), streamOptions)
                                 // When no packets left to sent leave the channel.
                                 .on('end', () => {
                                     console.log('left channel');
