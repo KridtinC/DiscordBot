@@ -48,7 +48,7 @@ client.on('message', msg => {
                         .then(connection => {
                             console.log('joined channel');
 
-                            connection.playStream(ytdl(args[0]), streamOptions)
+                            connection.play(ytdl(args[0]), streamOptions)
                                 // When no packets left to sent leave the channel.
                                 .on('end', () => {
                                     console.log('left channel');
