@@ -1,9 +1,11 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-
-//var auth = require('./auth/auth.json');
-var token = process.env.token;
 const ytdl = require('ytdl-core');
+const dotenv = require('dotenv');
+//var auth = require('./auth/auth.json');
+
+const envVar = dotenv.config().parsed
+var token = envVar.token;
 
 //Overwatch Character List by Role
 var tankList = ['D.VA', 'ORISA', 'REINHARDT', 'ROADHOG', 'WINSTON', 'WREACKING_BALL', 'ZARYA', 'SIGMA'];

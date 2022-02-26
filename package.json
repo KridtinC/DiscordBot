@@ -6,6 +6,7 @@
   "author": "Kridtin Chawalratikool",
   "dependencies": {
     "discord.js": "^11.5.1",
+    "dotenv": "^16.0.0",
     "nodemon": "^1.19.2",
     "opusscript": "0.0.7",
     "ytdl-core": "^0.29.7"
