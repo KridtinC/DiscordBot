@@ -1,16 +1,11 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const ytdl = require('ytdl-core');
-const dotenv = require('dotenv');
-//var auth = require('./auth/auth.json');
 
+const ytdl = require('ytdl-core');
+
+const dotenv = require('dotenv');
 const envVar = dotenv.config().parsed
 var token = envVar.token;
-
-//Overwatch Character List by Role
-var tankList = ['D.VA', 'ORISA', 'REINHARDT', 'ROADHOG', 'WINSTON', 'WREACKING_BALL', 'ZARYA', 'SIGMA'];
-var dpsList = ['ASHE','BASTION','DOOMFIST','GENJI','HANZO','JUNKRAT','MCCREE','MEI','PHARAH','REAPER','SOLDIER 76','SOMBRA','SYMMETRA','TORBJöRN','TRACER','WIDOWMAKER'];
-var supportList = ['ANA','BAPTISTE','BRIGITTE','LUCIO','MERCY','MOIRA','ZENYATTA'];
 
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
@@ -25,18 +20,18 @@ client.on('message', msg => {
         args = args.splice(1);
         switch (cmd) {
             case 'template':
-			
-				break;
+
+                break;
             case 'kan':
                 console.log(msg.member.voiceChannel)
                 msg.channel.sendMessage('**Welcome ไอปี่**')
                 break;
-            case 'bas' :
+            case 'bas':
                 console.log(msg.member.voiceChannel)
                 msg.channel.sendMessage('Oh, welcome God of Discord!!')
                 break;
-            case 'pi' :
-                var randWord = ['**สัส อย่าพูดชื่อนี้อีก**', '**นะ นะ นะ นั่นมัน...... ปี่**', '**สวัสดีคับ ปี่**', '**นัดไว้มาให้ตรงเวลาด้วยนะปี่**'];             
+            case 'pi':
+                var randWord = ['**สัส อย่าพูดชื่อนี้อีก**', '**นะ นะ นะ นั่นมัน...... ปี่**', '**สวัสดีคับ ปี่**', '**นัดไว้มาให้ตรงเวลาด้วยนะปี่**'];
                 msg.channel.sendMessage(randWord[getRandomInt(randWord.length)]);
                 break;
             case 'rip':
@@ -50,15 +45,15 @@ client.on('message', msg => {
                 msg.channel.send(new Discord.Attachment('https://www.manusmenu.com/wp-content/uploads/2016/05/1-Salmon-Sashimi-with-Ponzu-3-1-of-1.jpg'));
                 break;
             case 'play':
-                if(args[0] == undefined){
+                if (args[0] == undefined) {
                     msg.reply('Please paste youtube link!')
                 }
-                else{
+                else {
                     const streamOptions = { seek: 0, volume: 0.1 };
                     msg.member.voiceChannel.join()
                         .then(connection => {
                             console.log('joined channel');
-    
+
                             connection.playStream(ytdl(args[0]), streamOptions)
                                 // When no packets left to sent leave the channel.
                                 .on('end', () => {
@@ -71,8 +66,8 @@ client.on('message', msg => {
                         .catch(console.error);
                 }
                 break;
-			case 'pause':
-				break;
+            case 'pause':
+                break;
             case 'stop':
                 msg.member.voiceChannel.leave()
                 break
@@ -83,23 +78,23 @@ client.on('message', msg => {
                 msg.member.voiceChannel.leave()
                 break
             case 'onoi':
-                switch (args[0]){
+                switch (args[0]) {
                     case 'ork':
                         resultMessage = '';
                         msg.channel.sendMessage('-----------------------------')
                         var ids = msg.member.voiceChannel.members.keyArray();
                         var onoiList = [];
                         console.log(ids.length)
-                        for (let i = 0; i < ids.length ; i++){
-                            if(i%2 == 0){
+                        for (let i = 0; i < ids.length; i++) {
+                            if (i % 2 == 0) {
                                 onoiList.push("**BLACK** ⚫");
                             }
-                            else{
+                            else {
                                 onoiList.push("**WHITE** ⚪");
-                            }           
+                            }
                         }
-                        for(var i = onoiList.length-1;i>=0;i--){
-                            var rand = Math.floor(Math.random()*onoiList.length)
+                        for (var i = onoiList.length - 1; i >= 0; i--) {
+                            var rand = Math.floor(Math.random() * onoiList.length)
                             var username = msg.member.voiceChannel.members.get(ids[i]).displayName;
                             resultMessage.concat(username + ": " + onoiList[rand] + "\n");
                             onoiList.splice(rand, 1);
@@ -112,51 +107,48 @@ client.on('message', msg => {
                         var ids = msg.member.voiceChannel.members.keyArray();
                         var onoiList = [];
                         console.log(ids.length)
-                        for (let i = 1; i < ids.length+1 ; i++){
-                            if(i%2 == 0 && i%3 != 0){
+                        for (let i = 1; i < ids.length + 1; i++) {
+                            if (i % 2 == 0 && i % 3 != 0) {
                                 onoiList.push("**DPS** 🗽");
                             }
-                            else if(i%3 == 0){
-                                onoiList.push("**SUPPORT** 🥗"); 
+                            else if (i % 3 == 0) {
+                                onoiList.push("**SUPPORT** 🥗");
                             }
-                            else{
-                                onoiList.push("**TANK** 🏯");    
-                            }           
+                            else {
+                                onoiList.push("**TANK** 🏯");
+                            }
                         }
-                        for(var i = onoiList.length-1;i>=0;i--){
-                            var rand = Math.floor(Math.random()*onoiList.length)
+                        for (var i = onoiList.length - 1; i >= 0; i--) {
+                            var rand = Math.floor(Math.random() * onoiList.length)
                             var username = msg.member.voiceChannel.members.get(ids[i]).displayName;
                             resultMessage.concat(username + ": " + onoiList[rand] + "\n");
                             onoiList.splice(rand, 1);
                         }
                         msg.channel.sendMessage(resultMessage);
-                        break;    
+                        break;
                 }
                 break;
-            case 'ow' :
-                switch(args[0]){
-                    case 'tank':      
-                        randomCharacter(tankList,msg);
+            case 'ow':
+                switch (args[0]) {
+                    case 'tank':
+                        randomCharacter(tankList, msg);
                         break;
                     case 'dps':
-                        randomCharacter(dpsList,msg);
+                        randomCharacter(dpsList, msg);
                         break;
                     case 'support':
-                        randomCharacter(supportList,msg);
+                        randomCharacter(supportList, msg);
                         break;
                 }
                 break;
             case 'help':
-                msg.channel.send("**!play [youtube_link]** | Playing song from youtube in current channel\n**!stop** | Stop song, and kick bot out\n**!botin/botout** | Bot join/leave the channel\n\
-                **!pi** | Predict system with 100% accuracy for **PI** actions\n\
-                **!onoi ork** | Random BLACK, WHITE\n**!onoi role** | Random TANK, DPS, SUPPORT\n\
+                msg.channel.send("**!play [youtube_link]** | Playing song from youtube in current channel\n \
+                **!stop** | Stop song, and kick bot out\n \
+                **!botin/botout** | Bot join/leave the channel\n \
+                **!pi** | Predict system with 100% accuracy for **PI** actions\n \
+                **!onoi ork** | Random BLACK, WHITE\n \
+                **!onoi role** | Random TANK, DPS, SUPPORT\n \
                 **!ow tank/dps/support** | Random character seperate by role in Overwatch");
-                // msg.channel.send("**!stop** | Stop song, and kick bot out")
-                // msg.channel.send("**!botin/botout** | Bot join/leave the channel")
-                // msg.channel.send("**!pi** | Predict system with 100% accuracy for **PI** actions")
-                // msg.channel.send("**!onoi ork** | Random BLACK, WHITE")
-                // msg.channel.send("**!onoi role** | Random TANK, DPS, SUPPORT")
-                // msg.channel.send("**!ow tank/dps/support** | Random character seperate by role in Overwatch")
                 break;
         }
     }
@@ -166,8 +158,8 @@ function getRandomInt(max) {
     return Math.floor(Math.random() * Math.floor(max));
 }
 
-function randomCharacter(randList, msg){
-    msg.reply("should play **" +randList[getRandomInt(randList.length)] + "**");
+function randomCharacter(randList, msg) {
+    msg.reply("should play **" + randList[getRandomInt(randList.length)] + "**");
 }
 
 client.login(token);
