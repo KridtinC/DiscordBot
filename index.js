@@ -34,9 +34,6 @@ client.on('message', msg => {
             case 'rip':
                 msg.channel.send(new Discord.Attachment('https://i.imgur.com/w3duR07.png'));
                 break;
-            case 'kuy':
-                msg.channel.send('นั่นมึงละโอ')
-                break;
             case 'salmon':
                 msg.reply('Salmon smells good!')
                 msg.channel.send(new Discord.Attachment('https://www.manusmenu.com/wp-content/uploads/2016/05/1-Salmon-Sashimi-with-Ponzu-3-1-of-1.jpg'));
