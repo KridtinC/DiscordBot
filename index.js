@@ -6,6 +6,7 @@ const ytdl = require('ytdl-core');
 const dotenv = require('dotenv');
 const envVar = dotenv.config().parsed
 var token = envVar.token;
+var hbd = [];
 
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
@@ -19,20 +20,17 @@ client.on('message', msg => {
 
         args = args.splice(1);
         switch (cmd) {
-            case 'template':
-
-                break;
             case 'kan':
                 console.log(msg.member.voiceChannel)
-                msg.channel.sendMessage('**Welcome ไอปี่**')
+                msg.channel.send('**Welcome ไอปี่**')
                 break;
             case 'bas':
                 console.log(msg.member.voiceChannel)
-                msg.channel.sendMessage('Oh, welcome God of Discord!!')
+                msg.channel.send('Oh, welcome God of Discord!!')
                 break;
             case 'pi':
                 var randWord = ['**สัส อย่าพูดชื่อนี้อีก**', '**นะ นะ นะ นั่นมัน...... ปี่**', '**สวัสดีคับ ปี่**', '**นัดไว้มาให้ตรงเวลาด้วยนะปี่**'];
-                msg.channel.sendMessage(randWord[getRandomInt(randWord.length)]);
+                msg.channel.send(randWord[getRandomInt(randWord.length)]);
                 break;
             case 'rip':
                 msg.channel.send(new Discord.Attachment('https://i.imgur.com/w3duR07.png'));
@@ -80,11 +78,11 @@ client.on('message', msg => {
             case 'onoi':
                 switch (args[0]) {
                     case 'ork':
-                        resultMessage = '';
-                        msg.channel.sendMessage('-----------------------------')
+                        var resultMessage = '';
+                        msg.channel.send('-----------------------------')
                         var ids = msg.member.voiceChannel.members.keyArray();
-                        var onoiList = [];
-                        console.log(ids.length)
+												var onoiList = [];
+												var result = [];
                         for (let i = 0; i < ids.length; i++) {
                             if (i % 2 == 0) {
                                 onoiList.push("**BLACK** ⚫");
@@ -94,16 +92,17 @@ client.on('message', msg => {
                             }
                         }
                         for (var i = onoiList.length - 1; i >= 0; i--) {
-                            var rand = Math.floor(Math.random() * onoiList.length)
-                            var username = msg.member.voiceChannel.members.get(ids[i]).displayName;
-                            resultMessage.concat(username + ": " + onoiList[rand] + "\n");
+                            var rand = Math.floor(Math.random() * onoiList.length)                 
+														var username = msg.member.voiceChannel.members.get(ids[i]).user.username;
+														result.push(username + ": " + onoiList[rand] + "\n");						
                             onoiList.splice(rand, 1);
                         }
-                        msg.channel.sendMessage(resultMessage);
+												msg.channel.send(result.join(""));
+												msg.channel.send('-----------------------------')
                         break;
                     case 'role':
                         resultMessage = '';
-                        msg.channel.sendMessage('-----------------------------')
+                        msg.channel.send('-----------------------------')
                         var ids = msg.member.voiceChannel.members.keyArray();
                         var onoiList = [];
                         console.log(ids.length)
@@ -124,7 +123,8 @@ client.on('message', msg => {
                             resultMessage.concat(username + ": " + onoiList[rand] + "\n");
                             onoiList.splice(rand, 1);
                         }
-                        msg.channel.sendMessage(resultMessage);
+												msg.channel.send(resultMessage);
+												msg.channel.send('-----------------------------')
                         break;
                 }
                 break;
@@ -142,14 +142,16 @@ client.on('message', msg => {
                 }
                 break;
             case 'help':
-                msg.channel.send("**!play [youtube_link]** | Playing song from youtube in current channel\n \
-                **!stop** | Stop song, and kick bot out\n \
-                **!botin/botout** | Bot join/leave the channel\n \
-                **!pi** | Predict system with 100% accuracy for **PI** actions\n \
-                **!onoi ork** | Random BLACK, WHITE\n \
-                **!onoi role** | Random TANK, DPS, SUPPORT\n \
-                **!ow tank/dps/support** | Random character seperate by role in Overwatch");
-                break;
+								var helpText = ["**!play [youtube_link]** | Playing song from youtube in current channel", 
+								"**!stop** | Stop song, and kick bot out", 
+								"**!botin/botout** | Bot join/leave the channel",
+								"**!pi** | Predict system with 100% accuracy for **PI** actions",
+								"**!onoi ork** | Random BLACK, WHITE",
+								"**!onoi role** | Random TANK, DPS, SUPPORT",
+								"**!ow tank/dps/support** | Random character seperate by role in Overwatch"
+							]
+                msg.channel.send(helpText.join("\n"));
+								break;
         }
     }
 });
