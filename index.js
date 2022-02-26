@@ -43,7 +43,7 @@ client.on('message', msg => {
                     msg.reply('Please paste youtube link!')
                 }
                 else {
-                    const streamOptions = { seek: 0, volume: 0.1 };
+                    const streamOptions = { seek: 0, volume: 1 };
                     msg.member.voiceChannel.join()
                         .then(connection => {
                             console.log('joined channel');
