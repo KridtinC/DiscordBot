@@ -5,6 +5,8 @@
   "main": "bot.js",
   "author": "Kridtin Chawalratikool",
   "dependencies": {
+    "coingecko-api": "^1.0.10",
+    "cron": "^1.8.2",
     "discord.js": "^11.5.1",
     "dotenv": "^16.0.0",
     "nodemon": "^1.19.2",
