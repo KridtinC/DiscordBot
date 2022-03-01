@@ -20,11 +20,9 @@ client.on('message', msg => {
         args = args.splice(1);
         switch (cmd) {
             case 'kan':
-                console.log(msg.member.voiceChannel)
                 msg.channel.send('**Welcome ไอปี่**')
                 break;
             case 'bas':
-                console.log(msg.member.voiceChannel)
                 msg.channel.send('Oh, welcome God of Discord!!')
                 break;
             case 'pi':
