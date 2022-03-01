@@ -11,7 +11,7 @@ var cryptoChannelID = process.env.cryptoChannelID || envVar.cryptoChannelID;
 function prepareCronJob() {
     index.DiscordClient.once("ready", () => {
         console.log("start crypto notification cron job")
-        let cryptoCronJob = new cron.CronJob('1 * * * * *', () => {
+        let cryptoCronJob = new cron.CronJob('00 00 10 * * *', () => {
             const guild = index.DiscordClient.guilds.get(serverID);
             const channel = guild.channels.get(cryptoChannelID);
 
