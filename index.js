@@ -23,7 +23,7 @@ client.on('message', msg => {
                 msg.channel.send('**Welcome ไอปี่**')
                 break;
             case 'bas':
-                msg.channel.send('Oh, welcome God of Discord!!')
+                msg.channel.send('**Oh, welcome God of Discord!!**')
                 break;
             case 'pi':
                 var randWord = ['**สัส อย่าพูดชื่อนี้อีก**', '**นะ นะ นะ นั่นมัน...... ปี่**', '**สวัสดีคับ ปี่**', '**นัดไว้มาให้ตรงเวลาด้วยนะปี่**'];
