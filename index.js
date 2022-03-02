@@ -8,7 +8,8 @@ const dotenv = require('dotenv');
 const envVar = dotenv.config().parsed
 var token = process.env.token || envVar.token;
 
-const crypto = require('./crypto')
+const crypto = require('./features/crypto')
+const entity = require('./entity')
 
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
@@ -128,13 +129,13 @@ client.on('message', msg => {
             case 'ow':
                 switch (args[0]) {
                     case 'tank':
-                        randomCharacter(tankList, msg);
+                        randomCharacter(entity.tankList, msg);
                         break;
                     case 'dps':
-                        randomCharacter(dpsList, msg);
+                        randomCharacter(entity.dpsList, msg);
                         break;
                     case 'support':
-                        randomCharacter(supportList, msg);
+                        randomCharacter(entity.supportList, msg);
                         break;
                 }
                 break;
