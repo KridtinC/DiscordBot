@@ -1,4 +1,4 @@
-const index = require('./index')
+const index = require('../index')
 const cron = require('cron');
 const CoinGecko = require('coingecko-api');
 const cryptoAPIClient = new CoinGecko();
