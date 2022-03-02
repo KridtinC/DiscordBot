@@ -1,11 +1,14 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
+exports.DiscordClient = client
 
 const ytdl = require('ytdl-core');
 
 const dotenv = require('dotenv');
 const envVar = dotenv.config().parsed
 var token = process.env.token || envVar.token;
+
+const crypto = require('./crypto')
 
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
@@ -75,8 +78,8 @@ client.on('message', msg => {
                         var resultMessage = '';
                         msg.channel.send('-----------------------------')
                         var ids = msg.member.voiceChannel.members.keyArray();
-												var onoiList = [];
-												var result = [];
+                        var onoiList = [];
+                        var result = [];
                         for (let i = 0; i < ids.length; i++) {
                             if (i % 2 == 0) {
                                 onoiList.push("**BLACK** ⚫");
@@ -86,13 +89,13 @@ client.on('message', msg => {
                             }
                         }
                         for (var i = onoiList.length - 1; i >= 0; i--) {
-                            var rand = Math.floor(Math.random() * onoiList.length)                 
-														var username = msg.member.voiceChannel.members.get(ids[i]).user.username;
-														result.push(username + ": " + onoiList[rand] + "\n");						
+                            var rand = Math.floor(Math.random() * onoiList.length)
+                            var username = msg.member.voiceChannel.members.get(ids[i]).user.username;
+                            result.push(username + ": " + onoiList[rand] + "\n");
                             onoiList.splice(rand, 1);
                         }
-												msg.channel.send(result.join(""));
-												msg.channel.send('-----------------------------')
+                        msg.channel.send(result.join(""));
+                        msg.channel.send('-----------------------------')
                         break;
                     case 'role':
                         resultMessage = '';
@@ -117,8 +120,8 @@ client.on('message', msg => {
                             resultMessage.concat(username + ": " + onoiList[rand] + "\n");
                             onoiList.splice(rand, 1);
                         }
-												msg.channel.send(resultMessage);
-												msg.channel.send('-----------------------------')
+                        msg.channel.send(resultMessage);
+                        msg.channel.send('-----------------------------')
                         break;
                 }
                 break;
@@ -136,19 +139,21 @@ client.on('message', msg => {
                 }
                 break;
             case 'help':
-								var helpText = ["**!play [youtube_link]** | Playing song from youtube in current channel", 
-								"**!stop** | Stop song, and kick bot out", 
-								"**!botin/botout** | Bot join/leave the channel",
-								"**!pi** | Predict system with 100% accuracy for **PI** actions",
-								"**!onoi ork** | Random BLACK, WHITE",
-								"**!onoi role** | Random TANK, DPS, SUPPORT",
-								"**!ow tank/dps/support** | Random character seperate by role in Overwatch"
-							]
+                var helpText = ["**!play [youtube_link]** | Playing song from youtube in current channel",
+                    "**!stop** | Stop song, and kick bot out",
+                    "**!botin/botout** | Bot join/leave the channel",
+                    "**!pi** | Predict system with 100% accuracy for **PI** actions",
+                    "**!onoi ork** | Random BLACK, WHITE",
+                    "**!onoi role** | Random TANK, DPS, SUPPORT",
+                    "**!ow tank/dps/support** | Random character seperate by role in Overwatch"
+                ]
                 msg.channel.send(helpText.join("\n"));
-								break;
+                break;
         }
     }
 });
+
+crypto.PrepareCronJob()
 
 function getRandomInt(max) {
     return Math.floor(Math.random() * Math.floor(max));
@@ -159,5 +164,3 @@ function randomCharacter(randList, msg) {
 }
 
 client.login(token);
-
-
