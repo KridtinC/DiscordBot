@@ -1,19 +1,33 @@
 {
-  "name": "bOt",
+  "name": "discord-bot-for-o",
   "version": "1.0.0",
   "description": "Bot Kong O",
-  "main": "bot.js",
-  "author": "Kridtin Chawalratikool",
+  "main": "index.ts",
+  "author": "Kridtin Chawalratikool, Pasut Kittiprapas",
   "dependencies": {
+    "@discordjs/opus": "^0.5.3",
+    "@discordjs/rest": "^0.3.0",
+    "@discordjs/voice": "^0.8.0",
     "coingecko-api": "^1.0.10",
     "cron": "^1.8.2",
-    "discord.js": "^11.5.1",
+    "discord-api-types": "^0.27.3",
+    "discord.js": "^13.6.0",
     "dotenv": "^16.0.0",
+    "ffmpeg-static": "^4.4.1",
+    "libsodium-wrappers": "^0.7.9",
     "nodemon": "^1.19.2",
-    "opusscript": "0.0.7",
-    "ytdl-core": "^0.29.7"
+    "opusscript": "^0.0.7",
+    "play-dl": "^1.8.9",
+    "sodium": "^3.0.2",
+    "ts-node": "^10.6.0",
+    "tweetnacl": "^1.0.3"
   },
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "nodemon index.ts"
+  },
+  "devDependencies": {
+    "@types/coingecko-api": "^1.0.10",
+    "@types/cron": "^1.7.3",
+    "typescript": "^4.6.2"
   }
 }
