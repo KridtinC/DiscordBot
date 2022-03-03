@@ -23,7 +23,9 @@
     "tweetnacl": "^1.0.3"
   },
   "scripts": {
-    "start": "nodemon index.ts"
+    "start": "nodemon index.ts",
+    "build": "tsc",
+    "start:prod": "node build/index.js"
   },
   "devDependencies": {
     "@types/coingecko-api": "^1.0.10",
