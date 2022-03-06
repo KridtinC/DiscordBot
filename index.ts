@@ -7,6 +7,7 @@ import { getRandomInt } from './util/helper';
 import { PrepareCronJob } from './features/crypto';
 import dotenv from 'dotenv'
 import { helpText, randWord } from './entity/enum';
+import { CheckBill } from './features/check_bill';
 
 const DiscordClient = new Client(
     {
@@ -100,6 +101,9 @@ DiscordClient.on('messageCreate', async msg => {
                     return
                 }
                 RandomOWCharacter(msg, args[0])
+                break;
+            case 'bill':
+                CheckBill(msg, args)
                 break;
             case 'help':
                 msg.channel.send(helpText.join("\n"));
