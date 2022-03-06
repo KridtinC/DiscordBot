@@ -5,7 +5,8 @@ var helpText = ["**!play [youtube_link]** | Playing song from youtube in current
     "**!pi** | Predict system with 100% accuracy for **PI** actions",
     "**!onoi ork** | Random BLACK, WHITE",
     "**!onoi role** | Random TANK, DPS, SUPPORT",
-    "**!ow tank/dps/support** | Random character seperate by role in Overwatch"
+    "**!ow tank/dps/support** | Random character seperate by role in Overwatch",
+    "!bill half, !bill adv, !bill check wip"
 ] // WIP update help
 
 export {
