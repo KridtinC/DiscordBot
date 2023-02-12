@@ -15,7 +15,7 @@
     "dotenv": "^16.0.0",
     "ffmpeg-static": "^4.4.1",
     "libsodium-wrappers": "^0.7.9",
-    "nodemon": "^2.0.15",
+    "nodemon": "^2.0.20",
     "opusscript": "^0.0.7",
     "play-dl": "^1.8.9",
     "sodium": "^3.0.2",
